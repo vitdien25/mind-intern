@@ -1,9 +1,11 @@
 # Khởi đầu
+- Tự tạo một repo của mình
 - Tìm hiểu react + type script + scss
 - Làm một Todo-List đơn giản (Thêm, Sửa,Xóa, Tìm kiếm)
 - Tìm hiểu Redux Toolkit
 - Kết hợp redux vào todo list
 # Mind Intern (Sau khi đã xong khởi đầu)
+- Clone project của repo này
 - Link figma: https://www.figma.com/design/5h3SL9AixfzwWyaIXM8FI8/OdooMind?node-id=22-2&t=KNIybTEigmLgGpdO-1
 - Code page Login, Dashboard, Biểu đồ
 - Sử dụng: Vite-ReactJS + TypeScript + SCSS + Ant Design + ReactFlow + ChartJs + Redux Toolkit
