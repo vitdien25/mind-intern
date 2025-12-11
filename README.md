@@ -11,7 +11,7 @@
 # Mind Intern (Sau khi đã xong khởi đầu)
 - Clone project của repo này
 - Link figma: https://www.figma.com/design/5h3SL9AixfzwWyaIXM8FI8/OdooMind?node-id=22-2&t=KNIybTEigmLgGpdO-1
-- Code page Login, Dashboard, Biểu đồ
+- Code page 
 - Sử dụng: Vite-ReactJS + TypeScript + SCSS + Ant Design + ReactFlow + ChartJs + Redux Toolkit + axios
 - Tài liều:
 -- ReactFlow: https://reactflow.dev/
