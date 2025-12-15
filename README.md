@@ -13,7 +13,7 @@
 - Link figma: https://www.figma.com/design/m87fy2Q0HrFf1j4KqKcIMn/MindFc-LandingPage?node-id=73-10483&t=Q8MmxwMkEzE0IIdl-1
 - Code page 
 - Sử dụng: Vite-ReactJS + TypeScript + SCSS + Ant Design + ReactFlow + ChartJs + Redux Toolkit + axios
-# Tài liều:
+# Tài liệu:
 - ReactFlow: https://reactflow.dev/
 - Ant: https://ant.design/docs/react/introduce
 - ChartJs: https://react-chartjs-2.js.org/
