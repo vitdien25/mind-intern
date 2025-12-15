@@ -10,7 +10,7 @@
 - Link API: http://10.10.1.66:8000/docs (chỉ có thể dùng khi có mặt anh Bi)
 # Mind Intern (Sau khi đã xong khởi đầu)
 - Clone project của repo này
-- Link figma: https://www.figma.com/design/5h3SL9AixfzwWyaIXM8FI8/OdooMind?node-id=22-2&t=KNIybTEigmLgGpdO-1
+- Link figma: https://www.figma.com/design/m87fy2Q0HrFf1j4KqKcIMn/MindFc-LandingPage?node-id=73-10483&t=Q8MmxwMkEzE0IIdl-1
 - Code page 
 - Sử dụng: Vite-ReactJS + TypeScript + SCSS + Ant Design + ReactFlow + ChartJs + Redux Toolkit + axios
 - Tài liều:
