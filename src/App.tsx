@@ -1,8 +1,16 @@
 import "./App.css";
-import LoginPage from "./pages/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/Home";
 
 function App() {
-  return <LoginPage />;
+  return (
+    <Router>
+      <Routes>
+        {/* <Route path="/" element={<LoginPage />} /> */}
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
