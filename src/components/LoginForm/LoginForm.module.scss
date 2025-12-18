@@ -1,0 +1,47 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 604px;
+    height: 528px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    background:
+            linear-gradient(0deg,
+                rgba(255, 255, 255, 0.2),
+                rgba(0, 0, 0, 0.2)),
+            conic-gradient(from 20.96deg at 13.04% 91.23%,
+                rgba(255, 255, 255, 0) 0deg,
+                #000 360deg),
+            conic-gradient(from 202.78deg at 90.18% 24.22%,
+                #000 0deg,
+                rgba(0, 0, 0, 0) 0.43deg,
+                #000 360deg),
+            conic-gradient(from 27.27deg at 84.43% 96.53%,
+                rgba(0, 0, 0, 0) -355.59deg,
+                #000 0.35deg,
+                rgba(0, 0, 0, 0) 4.41deg,
+                #000 360.35deg);
+    
+}
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+:global(.ant-input::placeholder) {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+:global(.ant-input-password input::placeholder) {
+    color: rgba(255, 255, 255, 0.6);
+}
