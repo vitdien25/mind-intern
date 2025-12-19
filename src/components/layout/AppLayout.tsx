@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Button, Layout, theme } from "antd";
+import { Avatar, Button, Layout } from "antd";
 import Sidebar from "./Sidebar";
+import styles from "./layout.module.scss";
+import { RxAvatar } from "react-icons/rx";
 
 const { Header, Content } = Layout;
 
@@ -12,21 +14,12 @@ interface AppLayoutProps {
 const AppLayout = ({ children }: AppLayoutProps) => {
   const [collapsed, setCollapsed] = useState(true);
   const [selectedLabel, setSelectedLabel] = useState("TRANG CHỦ");
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
   return (
     <Layout>
       <Sidebar collapsed={collapsed} onSelectLabel={setSelectedLabel} />
       <Layout>
-        <Header
-          style={{
-            background: colorBgContainer,
-            backgroundColor: "#0c1c34",
-            color: "#fff",
-            paddingLeft: 14,
-          }}
-        >
+        {/* Header */}
+        <Header className={styles.header}>
           <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
             <Button
               type="text"
@@ -44,13 +37,42 @@ const AppLayout = ({ children }: AppLayoutProps) => {
               {selectedLabel}
             </span>
           </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 16,
+              lineHeight: 1.2,
+            }}
+          >
+            <div
+              style={{ display: "flex", flexDirection: "column", fontSize: 14 }}
+            >
+              <span style={{ fontWeight: "bold" }}>14:27:40</span>
+              <span>11/24/2025</span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                lineHeight: 1.6,
+              }}
+            >
+              <Avatar icon={<RxAvatar size={32} />} size={32} />
+
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <span style={{ fontSize: 12 }}>Vịt Điên</span>
+                <span style={{ fontSize: 10 }}>Administrator</span>
+              </div>
+            </div>
+          </div>
         </Header>
         <Content
           style={{
-            margin: "24px 16px",
-            padding: 24,
             minHeight: 280,
-            background: colorBgContainer,
+            background: "#102d5e",
+            padding: "12px",
           }}
         >
           {children}

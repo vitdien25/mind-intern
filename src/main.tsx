@@ -1,10 +1,23 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import { ConfigProvider } from "antd";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <ConfigProvider
+      theme={{
+        token: {
+          fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+        },
+      }}
+    >
+      <App />
+    </ConfigProvider>
+  </StrictMode>
+);
