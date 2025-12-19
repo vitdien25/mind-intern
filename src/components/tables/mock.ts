@@ -3,12 +3,17 @@ import type { ColumnsType } from "antd/es/table";
 
 export interface PowerTableRow {
   key: number;
-  stt: number;
-  name: string;
-  kwh: number;
-  temp: number;
-  humidity: string;
-  current: string;
+  stt?: number;
+  name?: string;
+  kwh?: number;
+  temp?: number;
+  humidity?: string;
+  current?: string;
+  factory?: number;
+  cabinetList?: string;
+  openingReading?: number;
+  currentReading?: number;
+  consumption?: string;
 }
 export const columns: ColumnsType<PowerTableRow> = [
   {
@@ -131,5 +136,120 @@ export const dataSource: TableProps<PowerTableRow>["dataSource"] = [
     temp: 37,
     humidity: "50%",
     current: "12 A",
+  },
+];
+
+export const columns2: ColumnsType<PowerTableRow> = [
+  {
+    title: "Xưởng",
+    dataIndex: "factory",
+    key: "factory",
+    width: 132,
+    align: "left",
+  },
+  {
+    title: "Danh sách tủ",
+    dataIndex: "cabinetList",
+    key: "cabinetList",
+    align: "left",
+  },
+  {
+    title: "Số điện đầu tháng",
+    dataIndex: "openingReading",
+    key: "openingReading",
+    width: 212,
+    align: "left",
+    className: "yellow-cell"
+  },
+  {
+    title: "Số điện hiện tại",
+    dataIndex: "currentReading",
+    key: "currentReading",
+    width: 212,
+    align: "left",
+    className: "yellow-cell"
+  },
+  {
+    title: "Điện năng tiêu thụ",
+    dataIndex: "consumption",
+    key: "consumption",
+    width: 212,
+    align: "left",
+    className: "yellow-cell"
+  },
+];
+
+export const dataSource2: TableProps<PowerTableRow>["dataSource"] = [
+  {
+    key: 1,
+    factory: 1,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 2,
+    factory: 2,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 3,
+    factory: 3,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 4,
+    factory: 4,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 5,
+    factory: 5,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 6,
+    factory: 6,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 7,
+    factory: 7,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 8,
+    factory: 8,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
+  },
+  {
+    key: 9,
+    factory: 9,
+    cabinetList: "TĐ - 001, TĐ - 002, TĐ - 003",
+    openingReading: 5134,
+    currentReading: 5200,
+    consumption: "66 kW",
   },
 ];

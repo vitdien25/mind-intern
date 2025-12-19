@@ -2,9 +2,15 @@ import React from "react";
 import AppLayout from "../../components/layout/AppLayout";
 import styles from "./HomePage.module.scss";
 import { Col, Row, Space } from "antd";
-import DoughnutChart from "../../components/charts/DoughNutChart";
-import { columns, dataSource } from "../../components/tables/mock";
+import {
+  columns,
+  columns2,
+  dataSource,
+  dataSource2,
+} from "../../components/tables/mock";
 import BaseTable from "../../components/tables/BaseTable";
+import DoughnutChart from "../../components/charts/DoughnutChart";
+import BarChart from "../../components/charts/BarChart";
 
 const HomePage: React.FC = () => {
   return (
@@ -17,6 +23,7 @@ const HomePage: React.FC = () => {
                 style={{
                   padding: 12,
                   margin: 0,
+                  marginBottom: 14,
                   fontSize: 20,
                   fontWeight: "bold",
                 }}
@@ -41,8 +48,22 @@ const HomePage: React.FC = () => {
             </div>
           </Col>
         </Row>
-        <div className={styles.container}>bar chart</div>
-        <div className={styles.container}>table 2</div>
+        <div className={styles.container}>
+          <p
+            style={{
+              padding: 12,
+              margin: 0,
+              fontSize: 20,
+              fontWeight: "bold",
+            }}
+          >
+            Biểu đồ tiêu thụ năm
+          </p>
+          <BarChart />
+        </div>
+        <div className={styles.container}>
+          <BaseTable columns={columns2} dataSource={dataSource2} />
+        </div>
       </Space>
     </AppLayout>
   );

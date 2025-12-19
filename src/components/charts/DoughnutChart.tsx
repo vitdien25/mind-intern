@@ -1,7 +1,6 @@
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
-import styles from "./chart.module.scss";
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
@@ -52,7 +51,7 @@ const DoughnutChart = () => {
   };
 
   return (
-    <div className={styles["doughnut-chart-container"]}>
+    <div style={{ width: "80%", height: "80%" }}>
       <Doughnut data={data} options={options} plugins={[centerTextPlugin]} />
     </div>
   );
