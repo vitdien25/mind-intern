@@ -20,7 +20,7 @@ export const columns: ColumnsType<PowerTableRow> = [
     title: "STT",
     dataIndex: "stt",
     key: "stt",
-    width: 60,
+    width: 106,
     align: "center",
   },
   {
@@ -32,24 +32,28 @@ export const columns: ColumnsType<PowerTableRow> = [
     title: "kWh",
     dataIndex: "kwh",
     key: "kwh",
+    width: 120,
     align: "center",
   },
   {
     title: "t°",
     dataIndex: "temp",
     key: "temp",
+    width: 120,
     align: "center",
   },
   {
     title: "Độ ẩm",
     dataIndex: "humidity",
     key: "humidity",
+    width: 120,
     align: "center",
   },
   {
     title: "Dòng TB",
     dataIndex: "current",
     key: "current",
+    width: 120,
     align: "right",
   },
 ];
@@ -159,7 +163,7 @@ export const columns2: ColumnsType<PowerTableRow> = [
     key: "openingReading",
     width: 212,
     align: "left",
-    className: "yellow-cell"
+    className: "yellow-cell",
   },
   {
     title: "Số điện hiện tại",
@@ -167,7 +171,7 @@ export const columns2: ColumnsType<PowerTableRow> = [
     key: "currentReading",
     width: 212,
     align: "left",
-    className: "yellow-cell"
+    className: "yellow-cell",
   },
   {
     title: "Điện năng tiêu thụ",
@@ -175,7 +179,7 @@ export const columns2: ColumnsType<PowerTableRow> = [
     key: "consumption",
     width: 212,
     align: "left",
-    className: "yellow-cell"
+    className: "yellow-cell",
   },
 ];
 

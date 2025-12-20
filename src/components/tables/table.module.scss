@@ -66,3 +66,54 @@
         }
     }
 }
+
+// Factory Card Styles
+.factory-card {
+    min-width: 336px;
+    height: 92px;
+    overflow: hidden;
+    border-radius: 3px;
+    border: 1px solid #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .factory-card-title {
+        font-family: "Roboto";
+        font-size: 14px;
+        font-weight: 400;
+        margin: 4px;
+        align-items: center;
+        display: flex;
+        gap: 8px;
+    }
+
+    .factory-card-info {
+        
+        height: 53px;
+        margin: 6px;
+
+        .factory-card-label {
+            height: 100%;
+            font-family: "Roboto";
+            font-size: 10px;
+            font-weight: 300;
+            font-style: italic;
+            color: #FFFFFFD9;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2px;
+        }
+
+        .factory-card-value {
+            height: 100%;
+            font-family: "Roboto";
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}

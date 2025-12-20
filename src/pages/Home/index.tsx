@@ -1,7 +1,7 @@
 import React from "react";
 import AppLayout from "../../components/layout/AppLayout";
 import styles from "./HomePage.module.scss";
-import { Col, Row, Space } from "antd";
+import { Col, Grid, Row, Space } from "antd";
 import {
   columns,
   columns2,
@@ -11,8 +11,12 @@ import {
 import BaseTable from "../../components/tables/BaseTable";
 import DoughnutChart from "../../components/charts/DoughnutChart";
 import BarChart from "../../components/charts/BarChart";
+import FactoryCard from "../../components/tables/FactoryCard";
+
+const { useBreakpoint } = Grid;
 
 const HomePage: React.FC = () => {
+  const screens = useBreakpoint();
   return (
     <AppLayout>
       <Space orientation="vertical" size={12} style={{ width: "100%" }}>
@@ -43,11 +47,30 @@ const HomePage: React.FC = () => {
             </div>
           </Col>
           <Col flex="auto">
-            <div className={styles.container}>
-              <BaseTable columns={columns} dataSource={dataSource} />
-            </div>
+            {/* if desktop render table, if tablet render cards */}
+            {screens.lg ? (
+              <div className={styles.container}>
+                <BaseTable columns={columns} dataSource={dataSource} />
+              </div>
+            ) : (
+              <div
+                className={styles.container}
+                style={{
+                  minWidth: 336,
+                  borderRadius: 3,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 12,
+                }}
+              >
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <FactoryCard key={index} />
+                ))}
+              </div>
+            )}
           </Col>
         </Row>
+
         <div className={styles.container}>
           <p
             style={{
