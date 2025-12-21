@@ -1,0 +1,86 @@
+.factory-node {
+    width: 379px;
+    height: 133px;
+    background-color: #0050b3;
+    color: white;
+    border-radius: 12px;
+    font-size: 13px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    overflow: visible;
+    
+    .node-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px 6px 0 6px;
+        font-family: Roboto Condensed;
+        font-style: Medium;
+        font-weight: 500;
+        font-size: 14px;
+        
+        .icon {
+            font-size: 24px;
+        }
+    }
+    .node-table {
+        margin: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        font-family: Roboto;
+        font-weight: 500;
+        font-size: 12px;
+        overflow: hidden;
+        .row {
+            display: grid;
+            grid-template-columns: 26px 1fr 1fr 1fr 40px;
+            text-align: start;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            border-right: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: #1f64ba;
+            
+            div {
+                border-right: 1px solid rgba(255, 255, 255, 0.15);
+                padding: 6px 6px;
+            }
+            
+            div:last-child {
+                border-right: none;
+            }
+        }
+                                    
+        .row.header {
+            font-weight: 700;
+            background-color: #0d4081;
+            
+            div {
+                border-right: none;
+                padding: 6px 6px;
+            }
+        }
+                                    
+        .row:last-child {
+            background-color: #014dab;
+            border-bottom: none;
+        }
+    }
+}
+.factory-node.warning {
+    background-color: #cf1322;
+    .node-table {
+        .row {
+            background-color: #b82d38;
+        }
+        .row.header {
+            background-color: #a3121a;
+        }
+        .row:last-child {
+            background-color: #b9111e;
+        }
+    }
+}
+
+
+
+
+
+

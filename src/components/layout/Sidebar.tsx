@@ -5,6 +5,7 @@ import {
 } from "@ant-design/icons";
 import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface SidebarProps {
   collapsed: boolean;
@@ -16,6 +17,7 @@ const menuItems = [
     key: "1",
     icon: <UserOutlined />,
     label: "TRANG CHỦ",
+    path: "/home",
   },
   {
     key: "2",
@@ -26,6 +28,7 @@ const menuItems = [
     key: "3",
     icon: <UploadOutlined />,
     label: "BIỂU ĐỒ NHÀ MÁY",
+    path: "/factory-chart",
   },
   {
     key: "4",
@@ -55,6 +58,8 @@ const menuItems = [
 ];
 
 const Sidebar = ({ collapsed, onSelectLabel }: SidebarProps) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Sider
       trigger={null}
@@ -117,10 +122,18 @@ const Sidebar = ({ collapsed, onSelectLabel }: SidebarProps) => {
         mode="inline"
         defaultSelectedKeys={["1"]}
         items={menuItems}
-        onSelect={({ key }) => {
-          const item = menuItems.find((item) => item.key === key);
-          if (item) {
-            onSelectLabel?.(item.label);
+        selectedKeys={[
+          menuItems.find((item) => item.path === location.pathname)?.key || "1",
+        ]}
+        onClick={(e) => {
+          const selectedItem = menuItems.find((item) => item.key === e.key);
+          if (selectedItem) {
+            if (onSelectLabel) {
+              onSelectLabel(selectedItem.label);
+            }
+            if (selectedItem.path) {
+              navigate(selectedItem.path);
+            }
           }
         }}
         style={{ backgroundColor: "#3c4247", borderRadius: 8 }}

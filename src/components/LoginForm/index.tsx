@@ -1,6 +1,7 @@
 import { Button, Form, Input } from "antd";
 import styles from "./LoginForm.module.scss";
 import { Grid } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const { useBreakpoint } = Grid;
 
@@ -9,6 +10,7 @@ const LoginForm = () => {
 
   const isMobile = !screens.md;
   const isDesktop = screens.lg;
+  const navigate = useNavigate();
   return (
     <div
       className={styles.loginContainer}
@@ -63,7 +65,13 @@ const LoginForm = () => {
               style={{ backgroundColor: "#FFFFFF0F", color: "#FFFFFF" }}
             />
           </Form.Item>
-          <Button type="primary" block htmlType="submit" size="large">
+          <Button
+            type="primary"
+            block
+            htmlType="submit"
+            size="large"
+            onClick={() => navigate("/home")}
+          >
             ĐĂNG NHẬP
           </Button>
         </Form>

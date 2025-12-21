@@ -70,7 +70,7 @@ const AppLayout = ({ children }: AppLayoutProps) => {
         </Header>
         <Content
           style={{
-            minHeight: 280,
+            minHeight: "100vh",
             background: "#102d5e",
             padding: "12px",
           }}
