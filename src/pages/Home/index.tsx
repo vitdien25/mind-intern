@@ -62,6 +62,7 @@ const HomePage: React.FC = () => {
                 className={styles.container}
                 style={{
                   minWidth: 336,
+                  backgroundColor: "transparent",
                   borderRadius: 3,
                   display: "flex",
                   flexDirection: "column",
@@ -103,9 +104,25 @@ const HomePage: React.FC = () => {
           </p>
           <BarChart />
         </div>
-        <div className={styles.container}>
-          <BaseTable columns={columns2} dataSource={dataSource2} />
-        </div>
+        {screens.isMobile ? (
+          <div
+            className={styles["mobile-container"]}
+            style={{
+              minWidth: 336,
+              height: "auto",
+              borderRadius: 3,
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+            }}
+          >
+            <FactoryCard />
+          </div>
+        ) : (
+          <div className={styles.container}>
+            <BaseTable columns={columns2} dataSource={dataSource2} />
+          </div>
+        )}
       </Space>
     </AppLayout>
   );
