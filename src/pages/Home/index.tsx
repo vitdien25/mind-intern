@@ -1,7 +1,7 @@
 import React from "react";
 import AppLayout from "../../components/layout/AppLayout";
 import styles from "./HomePage.module.scss";
-import { Col, Grid, Row, Space } from "antd";
+import { Col, Row, Space } from "antd";
 import {
   columns,
   columns2,
@@ -12,17 +12,22 @@ import BaseTable from "../../components/tables/BaseTable";
 import DoughnutChart from "../../components/charts/DoughnutChart";
 import BarChart from "../../components/charts/BarChart";
 import FactoryCard from "../../components/tables/FactoryCard";
-
-const { useBreakpoint } = Grid;
+import { useScreen } from "../../hooks/useScreen";
+import MobileCard from "../../components/tables/MobileCard";
 
 const HomePage: React.FC = () => {
-  const screens = useBreakpoint();
+  const screens = useScreen();
+  console.log("screen", screens.isMobile);
   return (
     <AppLayout>
       <Space orientation="vertical" size={12} style={{ width: "100%" }}>
         <Row gutter={[12, 12]} wrap={false}>
-          <Col flex="360px">
-            <div className={styles.container}>
+          <Col flex={screens.isMobile ? "215px" : "360px"}>
+            <div
+              className={
+                screens.isMobile ? styles["mobile-container"] : styles.container
+              }
+            >
               <p
                 style={{
                   padding: 12,
@@ -48,11 +53,11 @@ const HomePage: React.FC = () => {
           </Col>
           <Col flex="auto">
             {/* if desktop render table, if tablet render cards */}
-            {screens.lg ? (
+            {screens.isDesktop ? (
               <div className={styles.container}>
                 <BaseTable columns={columns} dataSource={dataSource} />
               </div>
-            ) : (
+            ) : screens.isTablet ? (
               <div
                 className={styles.container}
                 style={{
@@ -65,6 +70,20 @@ const HomePage: React.FC = () => {
               >
                 {Array.from({ length: 4 }).map((_, index) => (
                   <FactoryCard key={index} />
+                ))}
+              </div>
+            ) : (
+              <div
+                className={styles["mobile-container"]}
+                style={{
+                  backgroundColor: "transparent",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 12,
+                }}
+              >
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <MobileCard key={index} />
                 ))}
               </div>
             )}

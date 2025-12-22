@@ -8,9 +8,14 @@ import {
   MdOutlineWarning,
 } from "react-icons/md";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import { Menu } from "antd";
+import { Avatar, Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useLocation, useNavigate } from "react-router-dom";
+import styles from "./layout.module.scss";
+
+import { Grid } from "antd";
+import { RxAvatar } from "react-icons/rx";
+const { useBreakpoint } = Grid;
 
 interface SidebarProps {
   collapsed: boolean;
@@ -65,6 +70,16 @@ const menuItems = [
 const Sidebar = ({ collapsed, onSelectLabel }: SidebarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const screens = useBreakpoint();
+  const isMobile = !screens.md;
+  if (isMobile) {
+    return (
+      <>
+        <MobileHeader />
+        <MobileNav items={menuItems.slice(0, 5)} />
+      </>
+    );
+  }
   return (
     <Sider
       trigger={null}
@@ -152,3 +167,102 @@ const Sidebar = ({ collapsed, onSelectLabel }: SidebarProps) => {
 };
 
 export default Sidebar;
+
+const MobileHeader = () => {
+  return (
+    <div className={styles["mobile-header"]}>
+      <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
+        <svg
+          width="45"
+          height="20"
+          viewBox="0 0 45 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.2583 0.00452042C17.246 0.0058136 17.1172 0.0200195 16.9716 0.0361671C13.7923 0.384275 10.783 1.0708 8.20852 2.03569C5.93611 2.88691 4.01602 3.95772 2.6402 5.1409C2.41219 5.33724 2.26726 5.47222 2.03088 5.70924C1.73136 6.00956 1.57807 6.17941 1.35263 6.46229C0.586783 7.4233 0.139128 8.43921 0.0257644 9.47773C0.00515287 9.66631 0 9.769 0 10.0009C0 10.2327 0.00515287 10.3354 0.0257644 10.524C0.213844 12.2419 1.32107 13.8921 3.26499 15.3517C3.90266 15.8309 4.57961 16.2584 5.38089 16.6879C5.5928 16.8016 6.14673 17.0793 6.36637 17.182C9.10641 18.462 12.43 19.3727 16.1407 19.859C16.5929 19.9184 17.3517 20.0049 17.3774 19.9998C17.4019 19.9953 18.674 18.9929 20.9136 17.2123C22.1535 16.2268 23.1725 15.4169 23.1783 15.4117C23.1873 15.404 23.4372 15.6093 25.2877 17.1419C26.442 18.0991 27.6361 19.0891 27.9414 19.3436C28.2461 19.5981 28.4986 19.8073 28.5018 19.8099C28.5141 19.817 29.2387 19.7092 29.7507 19.6233C32.6776 19.1344 35.37 18.3529 37.625 17.3396C38.1383 17.1083 38.7238 16.8164 39.1741 16.5671C40.0597 16.0763 40.8133 15.5719 41.4941 15.0139C41.954 14.6374 42.4217 14.184 42.7682 13.779C43.4419 12.9924 43.8941 12.1877 44.1324 11.3507C44.383 10.473 44.3855 9.56039 44.1401 8.67753C43.9076 7.84052 43.4522 7.02288 42.7791 6.23237C42.4796 5.88039 42.0829 5.48578 41.6893 5.148C40.5421 4.16245 39.051 3.2686 37.2739 2.50134C36.2195 2.04603 35.0473 1.63204 33.8183 1.27941C32.1172 0.792448 30.2905 0.415922 28.3762 0.158232L28.2513 0.141439L28.2249 0.166628C28.21 0.180189 27.9247 0.415922 27.5898 0.689112C27.2548 0.96295 26.7679 1.36337 26.5077 1.57908C26.2474 1.79479 26.0214 1.98015 26.0053 1.99113C25.9892 2.00211 24.2211 3.44815 22.0762 5.20484C19.9313 6.96153 18.1458 8.42177 18.1085 8.45019C17.959 8.56321 17.8399 8.62586 17.7259 8.65105C17.5165 8.69755 17.3761 8.56128 17.3323 8.27C17.324 8.21317 17.3227 7.72233 17.3227 4.10239V0L17.3021 0.00129128C17.2905 0.00129128 17.2705 0.00322914 17.2583 0.00452042ZM9.25713 13.3728L9.2552 16.7402L9.09095 16.6666C8.51576 16.4108 7.92125 16.1099 7.41949 15.8199C5.24756 14.5663 3.82085 13.0705 3.27787 11.4766C3.15227 11.1065 3.08206 10.7778 3.04148 10.369C3.02989 10.254 3.02989 9.75415 3.04148 9.63273C3.08271 9.19614 3.17417 8.79572 3.32747 8.38625C3.70427 7.38003 4.44628 6.39835 5.50133 5.51097C6.46363 4.70108 7.65395 3.97903 9.07807 3.34159L9.2552 3.26215L9.25713 6.63344C9.25778 8.48765 9.25778 11.5205 9.25713 13.3728ZM36.633 4.03199C38.7412 5.19838 40.1918 6.58371 40.8648 8.07367C41.4471 9.36212 41.4336 10.7261 40.8262 12.012C40.5673 12.5603 40.224 13.0647 39.7454 13.6014C39.6204 13.7416 39.3016 14.0619 39.1534 14.1969C38.5776 14.7207 37.9296 15.1979 37.1831 15.6468C36.892 15.8218 36.5274 16.0266 36.5152 16.0214C36.5107 16.0195 34.9764 14.6716 33.1046 13.026C29.8609 10.1733 29.7024 10.0332 29.7134 10.0228C29.7198 10.0164 31.2496 8.64976 33.113 6.98607L36.501 3.9603L36.5203 3.96999C36.5306 3.9758 36.5815 4.00357 36.633 4.03199Z"
+            fill="url(#paint0_linear_73_17036)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_73_17036"
+              x1="22.1611"
+              y1="0"
+              x2="22.1611"
+              y2="20"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#FFFDB8" />
+              <stop offset="0.100962" stop-color="#F4CD2A" />
+              <stop offset="0.197115" stop-color="#F1B63B" />
+              <stop offset="0.403846" stop-color="#D28D0D" />
+              <stop offset="0.625" stop-color="#EDA323" />
+              <stop offset="1" stop-color="#FDF68C" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div className={styles["header-title"]}>
+          <span>KIM LONG</span>
+          <span>MOTOR</span>
+        </div>
+      </div>
+
+      <div className={styles["header-info"]}>
+        <Avatar
+          icon={<RxAvatar size={24} />}
+          size={24}
+          style={{ backgroundColor: "transparent" }}
+        />
+
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <span style={{ fontSize: 8 }}>Vịt Điên</span>
+          <span style={{ fontSize: 6 }}>Administrator</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const MobileNav = ({ items }: { items: typeof menuItems }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  return (
+    <div
+      style={{
+        height: 56,
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center",
+        background: "linear-gradient(135deg, #0f2a4a, #0b1f35)",
+      }}
+    >
+      {items.map((item) => {
+        const active = item.path === location.pathname;
+
+        return (
+          <div
+            key={item.key}
+            onClick={() => item.path && navigate(item.path)}
+            style={{
+              width: 40,
+              height: 40,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 8,
+              color: "#fff",
+              backgroundColor: active ? "#1677ff33" : "transparent",
+              borderBottom: active
+                ? "2px solid #1677ff"
+                : "2px solid transparent",
+            }}
+          >
+            {item.icon}
+          </div>
+        );
+      })}
+    </div>
+  );
+};

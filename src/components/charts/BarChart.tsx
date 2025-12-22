@@ -12,6 +12,9 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 import { Bar } from "react-chartjs-2";
 import type { ChartData, ChartOptions } from "chart.js";
 
+import { useScreen } from "../../hooks/useScreen";
+import { useMemo } from "react";
+
 const labels: string[] = [
   "1/2025",
   "2/2025",
@@ -21,13 +24,12 @@ const labels: string[] = [
   "6/2025",
 ];
 
-const data: ChartData<"bar", number[], string> = {
+const baseData: ChartData<"bar", number[], string> = {
   labels,
   datasets: [
     {
       data: [80, 42, 22, 45, 18, 100],
       backgroundColor: "#39b54a",
-      barThickness: 64,
       datalabels: {
         display: false,
       },
@@ -35,7 +37,7 @@ const data: ChartData<"bar", number[], string> = {
   ],
 };
 
-const options: ChartOptions<"bar"> = {
+const baseOptions: ChartOptions<"bar"> = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
@@ -83,6 +85,42 @@ const options: ChartOptions<"bar"> = {
 };
 
 const BarChart = () => {
+  const screen = useScreen();
+  const data = useMemo<ChartData<"bar">>(
+    () => ({
+      ...baseData,
+      datasets: baseData.datasets.map((ds) => ({
+        ...ds,
+        barThickness: screen.isDesktop ? 64 : screen.isTablet ? 36 : 18,
+      })),
+    }),
+    [screen.isDesktop, screen.isTablet]
+  );
+
+  const options = useMemo<ChartOptions<"bar">>(
+    () => ({
+      ...baseOptions,
+      scales: {
+        y: {
+          ...baseOptions.scales?.y,
+          ticks: {
+            ...baseOptions.scales?.y?.ticks,
+            maxRotation: screen.tickRotation,
+            minRotation: screen.tickRotation,
+          },
+        },
+        x: {
+          ...baseOptions.scales?.x,
+          ticks: {
+            ...baseOptions.scales?.x?.ticks,
+            maxRotation: screen.tickRotation,
+            minRotation: screen.tickRotation,
+          },
+        },
+      },
+    }),
+    [screen.tickRotation]
+  );
   return (
     <div style={{ width: "100%", height: "80%", padding: "0px 14px" }}>
       <Bar data={data} options={options} />
