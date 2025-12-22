@@ -60,7 +60,7 @@ const FactoryNode = ({ data }: NodeProps<FactoryNodeType>) => {
           <div />
         </div>
 
-        <div className={styles.row}>
+        <div className={styles.row} style={{ color: "#FADB14" }}>
           <div
             style={{
               display: "flex",

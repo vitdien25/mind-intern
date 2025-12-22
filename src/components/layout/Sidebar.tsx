@@ -1,8 +1,13 @@
 import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+  MdOutlineDashboard,
+  MdFactory,
+  MdOutlineLan,
+  MdOutlineMonitorHeart,
+  MdSettings,
+  MdDevicesOther,
+  MdOutlineWarning,
+} from "react-icons/md";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 import { Menu } from "antd";
 import Sider from "antd/es/layout/Sider";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -15,44 +20,44 @@ interface SidebarProps {
 const menuItems = [
   {
     key: "1",
-    icon: <UserOutlined />,
+    icon: <MdOutlineDashboard size={24} />,
     label: "TRANG CHỦ",
     path: "/home",
   },
   {
     key: "2",
-    icon: <VideoCameraOutlined />,
+    icon: <MdFactory size={24} />,
     label: "nav 2",
   },
   {
     key: "3",
-    icon: <UploadOutlined />,
+    icon: <MdOutlineLan size={24} />,
     label: "BIỂU ĐỒ NHÀ MÁY",
     path: "/factory-chart",
   },
   {
     key: "4",
-    icon: <UserOutlined />,
+    icon: <MdOutlineMonitorHeart size={24} />,
     label: "nav 4",
   },
   {
     key: "5",
-    icon: <VideoCameraOutlined />,
+    icon: <MdOutlineWarning size={24} />,
     label: "nav 5",
   },
   {
     key: "6",
-    icon: <UploadOutlined />,
+    icon: <MdSettings size={24} />,
     label: "nav 6",
   },
   {
     key: "7",
-    icon: <UserOutlined />,
+    icon: <IoMdInformationCircleOutline size={24} />,
     label: "nav 7",
   },
   {
     key: "8",
-    icon: <VideoCameraOutlined />,
+    icon: <MdDevicesOther size={24} />,
     label: "nav 8",
   },
 ];
@@ -120,6 +125,7 @@ const Sidebar = ({ collapsed, onSelectLabel }: SidebarProps) => {
       <Menu
         theme="dark"
         mode="inline"
+        inlineCollapsed={collapsed}
         defaultSelectedKeys={["1"]}
         items={menuItems}
         selectedKeys={[
@@ -136,7 +142,10 @@ const Sidebar = ({ collapsed, onSelectLabel }: SidebarProps) => {
             }
           }
         }}
-        style={{ backgroundColor: "#3c4247", borderRadius: 8 }}
+        style={{
+          backgroundColor: "#3c4247",
+          borderRadius: 8,
+        }}
       />
     </Sider>
   );

@@ -7,3 +7,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+:global .ant-menu-item {
+    padding-left: 10px !important;
+    padding-right: 0 !important;
+    padding-top: 4px !important;
+}

@@ -90,6 +90,8 @@ const initEdges: Edge[] = [
     markerEnd: {
       type: MarkerType.Arrow,
       color: "#fff",
+      height: 20,
+      width: 20,
     },
   },
   {
@@ -107,6 +109,8 @@ const initEdges: Edge[] = [
     markerEnd: {
       type: MarkerType.Arrow,
       color: "#fff",
+      height: 20,
+      width: 20,
     },
   },
   {
@@ -124,6 +128,8 @@ const initEdges: Edge[] = [
     markerEnd: {
       type: MarkerType.Arrow,
       color: "#fff",
+      height: 20,
+      width: 20,
     },
   },
   {
@@ -141,6 +147,8 @@ const initEdges: Edge[] = [
     markerEnd: {
       type: MarkerType.Arrow,
       color: "#fff",
+      height: 20,
+      width: 20,
     },
   },
 ];
